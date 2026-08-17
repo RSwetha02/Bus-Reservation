@@ -30,6 +30,7 @@ def starting_page():
     btn1.place(x=100,y=250)
     btn2=Button(starting_screen,width=20,text="LOGIN",fg="blue",cursor="hand2",font=('Helvetica','12','bold'),activebackground="white",command=login_page)
     btn2.place(x=100,y=320)
+
 def register():
     global register_screen
     register_screen=Toplevel(starting_screen)
@@ -85,8 +86,7 @@ def register_details():
     e=Age.get()
     f=Gender.get()
     g=Address.get()
-    
-    
+
     connection()
 
     sql='INSERT INTO register(name,password,contact_no,city,age,gender,address)VALUES(%s,%s,%s,%s,%s,%s,%s)'
@@ -101,8 +101,8 @@ def register_details():
     finally:
         mycursor.close()
         mydb.close()
+
 def login_page():
-    
     global Login_screen
     Login_screen=Toplevel(starting_screen)
     Login_screen.title("Login")
